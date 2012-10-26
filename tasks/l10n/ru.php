@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Неверные дата/время",
 "Tasks" => "Задачи",
+"Due" => "Задание",
+"List" => "Список",
+"Location" => "Местоположение",
 "No category" => "Нет категории",
 "Unspecified" => "Не указан",
 "1=highest" => "1=наибольший",
@@ -9,6 +12,7 @@
 "Empty Summary" => "Пустая сводка",
 "Invalid percent complete" => "Неверный процент завершения",
 "Invalid priority" => "Неверный приоритет",
+"The calendar application also need to be enabled to use this application." => "Для работы данного приложения необходимо включить приложение Calendar.",
 "Add Task" => "Добавить задачу",
 "Order Due" => "Срок заказа",
 "Order List" => "Список заказов",

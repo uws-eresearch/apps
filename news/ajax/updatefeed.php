@@ -14,6 +14,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $userid = OCP\USER::getUser();
 
@@ -40,7 +41,7 @@ if(!$newfeedid) {
 else {
 	$itemmapper = new OCA\News\ItemMapper($userid);
 	$unreadcounter = $itemmapper->countAllStatus($newfeedid, OCA\News\StatusFlag::UNREAD);
-	
+
 	OCP\JSON::success(array('data' => array('message' => $l->t('Feed updated!'), 'unreadcount' => $unreadcounter)));
 	exit();
 }

@@ -2,7 +2,7 @@
 
 class Test_InputData extends UnitTestCase {
 
-	function test_CommonUsage(){
+	function test_CommonUsage() {
 
 	  $json_input = '{"password":"tajnehaslo","email":"test1234@test1234.pl","captcha-challenge":null,"captcha-response":null}';
 
@@ -24,12 +24,12 @@ class Test_InputData extends UnitTestCase {
 
 		$this->assertFalse($InputData->hasValue('captcha-challenge'));
 		$this->assertFalse(isset($InputData['captcha-challenge']));
-		$this->assertTrue($InputData->getValue('captcha-challenge') === NULL);
-		$this->assertTrue($InputData['captcha-challenge'] === NULL);
+		$this->assertTrue($InputData->getValue('captcha-challenge') === null);
+		$this->assertTrue($InputData['captcha-challenge'] === null);
 
 	}
 
-	function test_WrongInput(){
+	function test_WrongInput() {
 
 		$json_input = '{"password":"tajnehasl';
 

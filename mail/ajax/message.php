@@ -28,15 +28,15 @@ $account_id = isset( $_GET['account_id'] ) ? $_GET['account_id'] : null;
 $folder_id = isset( $_GET['folder_id'] ) ? $_GET['folder_id'] : null;
 $message_id = isset( $_GET['message_id'] ) ? $_GET['message_id'] : null;
 
-$message = OCA_Mail\App::getMessage( OCP\User::getUser(), $account_id, $folder_id, $message_id );
+$message = OCA\Mail\App::getMessage( OCP\User::getUser(), $account_id, $folder_id, $message_id );
 
-if( $message['error'] ){
+if( $message['error'] ) {
 	OCP\JSON::error(array('data' => array('message' => $message['error'] )));
 	exit();
 }
 
 $tmpl = new OCP\Template('mail','part.message');
-$tmpl->assign('message', $message['message'] );
+$tmpl->assign('message', $message['message'], false );
 $page = $tmpl->fetchPage();
 
 OCP\JSON::success(array('data' => $page ));

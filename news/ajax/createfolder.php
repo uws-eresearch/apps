@@ -14,6 +14,7 @@
 OCP\JSON::checkLoggedIn();
 OCP\JSON::checkAppEnabled('news');
 OCP\JSON::callCheck();
+session_write_close();
 
 $userid = OCP\USER::getUser();
 
@@ -23,7 +24,7 @@ $parentid = trim($_POST['parentid']);
 $foldermapper = new OCA\News\FolderMapper($userid);
 
 if($parentid != 0) {
-    $folder = new OCA\News\Folder($name, NULL, $foldermapper->find($parentid));
+    $folder = new OCA\News\Folder($name, null, $foldermapper->find($parentid));
 } else {
     $folder = new OCA\News\Folder($name);
 }

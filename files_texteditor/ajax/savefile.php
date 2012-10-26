@@ -21,7 +21,7 @@
  */
 
 // Init owncloud
- 
+
 
 
 // Check if we are a user
@@ -41,7 +41,7 @@ if($path != '' && $mtime != '' && $filecontents)
 	{
 		// Then the file has changed since opening
 		OCP\JSON::error();
-		OCP\Util::writeLog('files_texteditor',"File: ".$path." modified since opening.",OCP\Util::ERROR);	
+		OCP\Util::writeLog('files_texteditor',"File: ".$path." modified since opening.",OCP\Util::ERROR);
 	}
 	else
 	{
@@ -60,17 +60,17 @@ if($path != '' && $mtime != '' && $filecontents)
 		else
 		{
 			// Not writeable!
-			OCP\JSON::error(array('data' => array( 'message' => 'Insufficient permissions')));	
+			OCP\JSON::error(array('data' => array( 'message' => 'Insufficient permissions')));
 			OCP\Util::writeLog('files_texteditor',"User does not have permission to write to file: ".$path,OCP\Util::ERROR);
 		}
 	}
-} else if($path == ''){
+} else if($path == '') {
 	OCP\JSON::error(array('data' => array( 'message' => 'File path not supplied')));
 	OCP\Util::writeLog('files_texteditor','No file path supplied', OCP\Util::ERROR);
-} else if($mtime == ''){
+} else if($mtime == '') {
 	OCP\JSON::error(array('data' => array( 'message' => 'File mtime not supplied')));
 	OCP\Util::writeLog('files_texteditor','No file mtime supplied' ,OCP\Util::ERROR);
-} else if(!$filecontents){
+} else if(!$filecontents) {
 	OCP\JSON::error(array('data' => array( 'message' => 'File contents not supplied')));
-	OCP\Util::writeLog('files_texteditor','The file contents was not supplied',OCP\Util::ERROR);	
+	OCP\Util::writeLog('files_texteditor','The file contents was not supplied',OCP\Util::ERROR);
 }

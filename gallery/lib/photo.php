@@ -5,30 +5,30 @@
  *
  * @author Bartek Przybylski
  * @copyright 2012 Bartek Przybylski bart.p.pl@gmail.com
- * 
+ *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
- * License as published by the Free Software Foundation; either 
+ * License as published by the Free Software Foundation; either
  * version 3 of the License, or any later version.
- * 
+ *
  * This library is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
  *
- * You should have received a copy of the GNU Lesser General Public 
+ * You should have received a copy of the GNU Lesser General Public
  * License along with this library. If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 class OC_Gallery_Photo {
-	public static function create($albumId, $img){
+	public static function create($albumId, $img) {
 		$stmt = OCP\DB::prepare('INSERT INTO `*PREFIX*gallery_photos` (`album_id`, `file_path`) VALUES (?, ?)');
 		$stmt->execute(array($albumId, $img));
 	}
-	public static function find($albumId, $img=null){
+	public static function find($albumId, $img=null) {
 		$sql = 'SELECT * FROM `*PREFIX*gallery_photos` WHERE `album_id` = ?';
 		$args = array($albumId);
-		if (!is_null($img)){
+		if (!is_null($img)) {
 			$sql .= ' AND `file_path` = ?';
 			$args[] = $img;
 		}
@@ -100,10 +100,7 @@ class OC_Gallery_Photo {
 
 	public static function getViewImage($image_name, $owner = null) {
 		if (!$owner) $owner = OCP\USER::getUser();
-		$save_dir = OCP\Config::getSystemValue("datadirectory") . '/' . $owner . '/gallery';
-		$save_dir .= dirname($image_name) . '/view/';
-		$image_path = $image_name;
-		$view_file = $save_dir . basename($image_name);
+		$view_file = OC_Filesystem::getLocalFile($image_name);
 		if (!is_dir($save_dir)) {
 			mkdir($save_dir, 0777, true);
 		}

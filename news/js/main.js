@@ -15,7 +15,7 @@ var News = News || {};
 $(document).ready(function(){
 
     // config values
-    var menuUpdateIntervalMiliseconds = 200000;
+    var menuUpdateIntervalMiliseconds = 60000;
 
     // global object array for accessing instances
     News.Objects = {};
@@ -23,25 +23,18 @@ $(document).ready(function(){
     News.Objects.Menu = new News.Menu(menuUpdateIntervalMiliseconds, News.Objects.Items);
     News.Objects.Menu.bindOn('#feeds > ul');
 
-    /* first run script begins */
-    $('#browsebtn_firstrun, #cloudbtn_firstrun, #importbtn_firstrun').hide();
-    
-    /* first run script ends */
-
     $('#addfeed').click(function() {
         $('#addfeed_dialog').dialog('open');
         $('#feed_add_url').html('');
 
         // populate folderlist
         $('#addfeed_dialog .menu').empty();
-        
-        // http://9gag.com/trending
 
         var $rootFolder = $('<li>').addClass('menuItem').html($('<b>').html(t('News', 'None')));
         $rootFolder.click(function(){
             News.DropDownMenu.selectItem(this, 0);
         });
-        $('#addfeed_dialog .menu').append($rootFolder);        
+        $('#addfeed_dialog .menu').append($rootFolder);
 
         $('#feeds .folder').each(function(){
             var title = $(this).children('.title').html();
@@ -53,7 +46,7 @@ $(document).ready(function(){
             $('#addfeed_dialog .menu').append($folder);
         });
     });
-    
+
     $('#addfolder').click(function() {
         $('#addfolder_dialog').dialog('open');
         $('#folder_add_name').val('');
@@ -85,7 +78,7 @@ $(document).ready(function(){
 
     $('#changefolder_dialog input[type=submit]').click(function(){
         News.Folder.changeName(this);
-    });    
+    });
 
     $('#folder_add_submit').click(function(){
         News.Folder.submit(this);
@@ -105,13 +98,15 @@ $(document).ready(function(){
         if($(this).hasClass('show_all')){
             data.showAll = false;
             $(this).addClass('show_unread').removeClass('show_all');
+            $(this).attr('title', t('news', 'Show only unread'));
         } else {
             data.showAll = true;
             $(this).addClass('show_all').removeClass('show_unread');
+            $(this).attr('title', t('news', 'Show everything'));
         }
-        
+
         News.Objects.Menu.triggerHideRead();
-        
+
         $.post(OC.filePath('news', 'ajax', 'usersettings.php'), data, function(jsondata){
             if(jsondata.status == 'success'){
                 News.Objects.Menu.setShowAll(data.showAll);
@@ -119,8 +114,8 @@ $(document).ready(function(){
                 OC.dialogs.alert(jsonData.data.message, t('news', 'Error'));
             }
         });
-    }); 
-    
+    });
+
     $(document).click(function(event) {
         $('#feedfoldermenu').hide();
     });
@@ -152,4 +147,3 @@ $(document).ready(function(){
 
 
 });
-

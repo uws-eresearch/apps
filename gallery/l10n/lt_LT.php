@@ -1,12 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Pictures" => "Nuotraukos",
-"Settings" => "Nustatymai",
-"Rescan" => "Atnaujinti",
-"Stop" => "Sustabdyti",
-"Share" => "Dalintis",
-"Back" => "Atgal",
-"Remove confirmation" => "Išjungti patvirtinimą",
-"Do you want to remove album" => "Ar tikrai norite pašalinti albumą",
-"Change album name" => "Keisti albumo pavadinimą",
-"New album name" => "Naujo albumo pavadinimas"
+"Galleries" => "Galerijos",
+"Share gallery" => "Dalintis galerija",
+"Error: " => "Klaida:",
+"Internal error" => "Sistemos klaida",
+"Slideshow" => "Skaidrių peržiūrą",
+"The \"Image Viewer\" application also need to be enabled to use this application." => "Aplikacija \"Image Viewer\" turi būti įjungta, norint naudotis aplikacija."
 );

@@ -29,9 +29,9 @@ OCP\App::checkAppEnabled('admin_migrate');
 if (isset($_POST['admin_export'])) {
 	// Create the export zip
 	$response = json_decode( OC_Migrate::export( null, $_POST['export_type'] ) );
-	if( !$response->success ){
+	if( !$response->success ) {
 		// Error
-		die('error');	
+		die('error');
 	} else {
 		$path = $response->data;
 		// Download it
@@ -43,13 +43,13 @@ if (isset($_POST['admin_export'])) {
 		unlink( $path );
 	}
 // Import?
-} else if( isset($_POST['admin_import']) ){
+} else if( isset($_POST['admin_import']) ) {
 	$from = $_FILES['owncloud_import']['tmp_name'];
 
-	if( !OC_Migrate::import( $from, 'instance' ) ){
-		die('failed');	
+	if( !OC_Migrate::import( $from, 'instance' ) ) {
+		die('failed');
 	}
-		
+
 } else {
 // fill template
     $tmpl = new OCP\Template('admin_migrate', 'settings');

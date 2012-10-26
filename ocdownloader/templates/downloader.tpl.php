@@ -5,20 +5,20 @@
 *
 * @author Xavier Beurois
 * @copyright 2012 Xavier Beurois www.djazz-lab.net
-* 
+*
 * This library is free software; you can redistribute it and/or
 * modify it under the terms of the GNU AFFERO GENERAL PUBLIC LICENSE
-* License as published by the Free Software Foundation; either 
+* License as published by the Free Software Foundation; either
 * version 3 of the License, or any later version.
-* 
+*
 * This library is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 * GNU AFFERO GENERAL PUBLIC LICENSE for more details.
-*  
-* You should have received a copy of the GNU Lesser General Public 
+*
+* You should have received a copy of the GNU Lesser General Public
 * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
-* 
+*
 */
 
 OC_Util::addStyle('ocdownloader', 'styles');
@@ -33,10 +33,10 @@ OC_Util::addScript('ocdownloader', 'functions');
 	<div class="personalblock topblock titleblock">
 		ocDownloader
 	</div>
-	<?php if(isset($_['curl_error'])){ ?>
+	<?php if(isset($_['curl_error'])) { ?>
 	<div class="personalblock red">
 		<?php print($_['curl_error']); ?>
-	</div>	
+	</div>
 	<?php }else{ ?>
 	<div class="personalblock">
 		<form>
@@ -45,7 +45,7 @@ OC_Util::addScript('ocdownloader', 'functions');
 				<select id="provsel" class="chzen-select" name="provsel">
 					<option value="0"></option>
 					<option value="web">From the WEB</option>
-					<?php foreach($_['user_prov_set'] as $setting){ ?>
+					<?php foreach($_['user_prov_set'] as $setting) { ?>
 					<option value="<?php print($setting['pr_id']); ?>"><?php print($setting['pr_name']); ?></option>
 					<?php } ?>
 				</select>

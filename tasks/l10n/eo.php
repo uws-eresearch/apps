@@ -1,6 +1,9 @@
 <?php $TRANSLATIONS = array(
 "Invalid date/time" => "Nevalida dato/horo",
 "Tasks" => "Taskoj",
+"Due" => "Limdato",
+"List" => "Listo",
+"Location" => "Loko",
 "No category" => "Neniu kategorio",
 "Unspecified" => "Nespecifita",
 "1=highest" => "1=plej alta",
@@ -9,6 +12,7 @@
 "Empty Summary" => "Malplena resumo",
 "Invalid percent complete" => "Nevalida plenuma elcento",
 "Invalid priority" => "Nevalida pligravo",
+"The calendar application also need to be enabled to use this application." => "Ankaŭ la kalendara aplikaĵo devas esti kapabligita por uzi ĉi tiun aplikaĵon.",
 "Add Task" => "Aldoni taskon",
 "Order Due" => "Ordigi laŭ limdato",
 "Order List" => "Ordigi laŭ listo",

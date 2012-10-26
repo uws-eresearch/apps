@@ -22,6 +22,10 @@
 "Error" => "Fehler",
 "Result: " => "Resultat: ",
 " imported, " => " importéiert, ",
+"Download" => "Download",
+"Edit" => "Editéieren",
+"Delete" => "Läschen",
+"Cancel" => "Ofbriechen",
 "This is not your addressbook." => "Dat do ass net däin Adressbuch.",
 "Contact could not be found." => "Konnt den Kontakt net fannen.",
 "Work" => "Aarbecht",
@@ -38,10 +42,8 @@
 "{name}'s Birthday" => "{name} säi Gebuertsdag",
 "Contact" => "Kontakt",
 "Add Contact" => "Kontakt bäisetzen",
-"Addressbooks" => "Adressbicher ",
 "Close" => "Zoumaachen",
 "Organization" => "Firma",
-"Delete" => "Läschen",
 "Nickname" => "Spëtznumm",
 "Enter nickname" => "Gëff e Spëtznumm an",
 "dd-mm-yyyy" => "dd-mm-yyyy",
@@ -76,9 +78,7 @@
 "Jr." => "Jr.",
 "Sn." => "Sn.",
 "iOS/OS X" => "iOS/OS X",
-"Download" => "Download",
-"Edit" => "Editéieren",
+"Addressbooks" => "Adressbicher ",
 "New Address Book" => "Neit Adressbuch",
-"Save" => "Späicheren",
-"Cancel" => "Ofbriechen"
+"Save" => "Späicheren"
 );
