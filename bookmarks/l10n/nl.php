@@ -23,10 +23,10 @@
 "Hide" => "Verbergen",
 "Show" => "Tonen",
 "Related Tags" => "Aanverwante tags",
+"Settings" => "Instellingen",
 "You have no bookmarks" => "U heeft geen bladwijzers",
 "Bookmarklet <br />" => "Bookmarklet <br />",
 "Import bookmarks" => "Importeer bladwijzers",
-"Bookmark html file" => "Bladwijzer html bestand",
 "Import" => "Importeer",
 "Export bookmarks" => "Exporteer bladwijzers",
 "Export" => "Exporteer"

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 10:22+0000\n"
-"Last-Translator: skoptev <skoptev@ukr.net>\n"
+"POT-Creation-Date: 2012-11-02 00:01+0100\n"
+"PO-Revision-Date: 2012-10-31 23:13+0000\n"
+"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/owncloud/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,25 +20,37 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr ""
+
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "Закладки"
 
-#: js/addBm.js:42 js/bookmarks.js:233
+#: js/addBm.js:42 js/bookmarks.js:241
 msgid "Tags"
 msgstr "Метки"
 
-#: js/bookmarks.js:168
+#: js/bookmarks.js:176
 msgid "Edit bookmark"
 msgstr "Редактировать закладку"
 
-#: js/bookmarks.js:385
+#: js/bookmarks.js:393
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Вы уверены, что хотите удалить этот тег из каждой записи?"
 
-#: js/bookmarks.js:386
+#: js/bookmarks.js:394
 msgid "Warning"
 msgstr "Предупреждение"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr ""
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr ""
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -118,7 +130,11 @@ msgstr "Показать"
 msgid "Related Tags"
 msgstr "Связанные теги"
 
-#: templates/list.php:39
+#: templates/list.php:38 templates/list.php:40
+msgid "Settings"
+msgstr "Конфигурация"
+
+#: templates/list.php:50
 msgid "You have no bookmarks"
 msgstr "У вас нет закладок"
 
@@ -131,8 +147,8 @@ msgid "Import bookmarks"
 msgstr "Импортировать закладки"
 
 #: templates/settings.php:28
-msgid "Bookmark html file"
-msgstr "Добавить html-файл в закладки"
+msgid "html bookmarks file"
+msgstr ""
 
 #: templates/settings.php:30
 msgid "Import"

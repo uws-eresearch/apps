@@ -23,10 +23,10 @@
 "Hide" => "隐藏",
 "Show" => "显示",
 "Related Tags" => "相关标签",
+"Settings" => "设置",
 "You have no bookmarks" => "您暂无书签",
 "Bookmarklet <br />" => "书签应用",
 "Import bookmarks" => "导入书签",
-"Bookmark html file" => "书签HTML文件",
 "Import" => "导入",
 "Export bookmarks" => "导出书签",
 "Export" => "导出"

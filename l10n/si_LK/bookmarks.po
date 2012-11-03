@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-23 02:04+0200\n"
-"PO-Revision-Date: 2012-10-22 09:57+0000\n"
+"POT-Creation-Date: 2012-11-03 00:00+0100\n"
+"PO-Revision-Date: 2012-11-02 10:29+0000\n"
 "Last-Translator: Anushke Guneratne <anushke@gmail.com>\n"
 "Language-Team: Sinhala (Sri Lanka) (http://www.transifex.com/projects/p/owncloud/language/si_LK/)\n"
 "MIME-Version: 1.0\n"
@@ -19,25 +19,37 @@ msgstr ""
 "Language: si_LK\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: ajax/import.php:21
+msgid "Unsupported file type for import"
+msgstr "ආයාත කරන ගොනුව රුචි නොවේ"
+
 #: appinfo/app.php:17
 msgid "Bookmarks"
 msgstr "පිටු සළකුනු"
 
-#: js/addBm.js:42 js/bookmarks.js:233
+#: js/addBm.js:42 js/bookmarks.js:241
 msgid "Tags"
 msgstr "ටැග"
 
-#: js/bookmarks.js:168
+#: js/bookmarks.js:176
 msgid "Edit bookmark"
 msgstr "පිටු සළකුනු සකසන්න"
 
-#: js/bookmarks.js:385
+#: js/bookmarks.js:393
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "මෙම ටැගය සියළු ඇතුලත් කිරීමකින් ඉවත් කරන බව ඔබට සහතිකද"
 
-#: js/bookmarks.js:386
+#: js/bookmarks.js:394
 msgid "Warning"
 msgstr "අනතුරු ඇඟවිම"
+
+#: js/settings.js:25
+msgid "Import completed successfully."
+msgstr "ආයාත කිරීම සාර්ථකයි"
+
+#: js/settings.js:56
+msgid "Uploading..."
+msgstr "උඩුගත කෙරේ..."
 
 #: lib/search.php:38
 msgid "Bookm."
@@ -117,7 +129,11 @@ msgstr "පෙන්වන්න"
 msgid "Related Tags"
 msgstr "අදාළ ටැගයන්"
 
-#: templates/list.php:39
+#: templates/list.php:38 templates/list.php:40
+msgid "Settings"
+msgstr "සිටුවම්"
+
+#: templates/list.php:50
 msgid "You have no bookmarks"
 msgstr "පිටු සළකුනු නොමැත"
 
@@ -130,8 +146,8 @@ msgid "Import bookmarks"
 msgstr "පිටුසනයන් ආයාත කරන්න"
 
 #: templates/settings.php:28
-msgid "Bookmark html file"
-msgstr "html ගොනුව පිටුසන් කරන්න"
+msgid "html bookmarks file"
+msgstr "html පිටුසන සහිත ගොනුවක්"
 
 #: templates/settings.php:30
 msgid "Import"

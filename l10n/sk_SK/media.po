@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-10-26 02:02+0200\n"
-"PO-Revision-Date: 2012-10-25 18:53+0000\n"
+"POT-Creation-Date: 2012-11-03 00:00+0100\n"
+"PO-Revision-Date: 2012-11-02 08:25+0000\n"
 "Last-Translator: Roman Priesol <roman@priesol.net>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,10 @@ msgstr "skladby"
 #: js/collection.js:101 js/collection.js:208
 msgid "albums"
 msgstr "albumy"
+
+#: js/collection.js:282
+msgid "Add to playlist"
+msgstr "Pridať do playlistu"
 
 #: js/music.js:18
 msgid "Add album to playlist"

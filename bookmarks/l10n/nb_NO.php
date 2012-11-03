@@ -23,10 +23,10 @@
 "Hide" => "Skjul",
 "Show" => "Vis",
 "Related Tags" => "Relaterte tagger",
+"Settings" => "Innstillinger",
 "You have no bookmarks" => "Du har ingen bokmerker",
 "Bookmarklet <br />" => "Bokmerke <br />",
 "Import bookmarks" => "Importer bokmerker",
-"Bookmark html file" => "Legg html fil til bokmerker",
 "Import" => "Importer",
 "Export bookmarks" => "Eksporter bokmerker",
 "Export" => "Eksporter"
