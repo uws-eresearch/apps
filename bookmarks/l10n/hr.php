@@ -2,11 +2,10 @@
 "Bookmarks" => "Zabilješke",
 "Close" => "Zatvori",
 "Save" => "Snimi",
-"Edit" => "Uredi",
 "Delete" => "Obriši",
+"Edit" => "Uredi",
 "Cancel" => "Odustani",
 "Address" => "Adresa",
-"List" => "Lista",
 "Settings" => "Postavke",
 "Export" => "Izvoz",
 "Import" => "Uvezi"

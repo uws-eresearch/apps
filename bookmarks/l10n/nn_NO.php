@@ -1,11 +1,10 @@
 <?php $TRANSLATIONS = array(
 "Close" => "Lukk",
 "Save" => "Lagre",
-"Edit" => "Endra",
 "Delete" => "Slett",
+"Edit" => "Endra",
 "Cancel" => "Kanseller",
 "Address" => "Adresse",
-"List" => "Liste",
 "Settings" => "Innstillingar",
 "Export" => "Eksporter",
 "Import" => "Importer"

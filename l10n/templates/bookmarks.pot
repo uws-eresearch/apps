@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-05 00:00+0100\n"
+"POT-Creation-Date: 2012-11-08 00:01+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,19 +25,23 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: js/addBm.js:42 js/bookmarks.js:245
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr ""
 
-#: js/bookmarks.js:179
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr ""
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr ""
 
-#: js/bookmarks.js:397
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr ""
 
-#: js/bookmarks.js:398
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr ""
 
@@ -77,40 +81,34 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
-msgid "Edit"
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
+msgid "Delete"
 msgstr ""
 
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
-msgid "Delete"
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
 msgstr ""
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr ""
 
-#: templates/list.php:12
-msgid "Address"
+#: templates/list.php:14
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
 msgstr ""
 
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr ""
-
-#: templates/list.php:16
-msgid "List"
-msgstr ""
-
-#: templates/list.php:17
-msgid "Image"
+#: templates/list.php:15
+msgid "Read later"
 msgstr ""
 
 #: templates/list.php:22
-msgid "Hide"
+msgid "Address"
 msgstr ""
 
 #: templates/list.php:23
-msgid "Show"
+msgid "Add"
 msgstr ""
 
 #: templates/list.php:30
@@ -121,32 +119,26 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: templates/list.php:53
+#: templates/list.php:52
 msgid "You have no bookmarks"
+msgstr ""
+
+#: templates/list.php:57
+msgid "You can also try to import a bookmark file"
 msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:13
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr ""
-
-#: templates/settings.php:19
-msgid "Read later"
-msgstr ""
-
-#: templates/settings.php:31
+#: templates/settings.php:23
 msgid "Export & Import"
 msgstr ""
 
-#: templates/settings.php:32
+#: templates/settings.php:24
 msgid "Export"
 msgstr ""
 
-#: templates/settings.php:34
+#: templates/settings.php:26
 msgid "Import"
 msgstr ""

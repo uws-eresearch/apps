@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2012-11-04 00:00+0100\n"
-"PO-Revision-Date: 2012-11-03 23:01+0000\n"
-"Last-Translator: I Robot <thomas.mueller@tmit.eu>\n"
+"POT-Creation-Date: 2012-11-08 00:01+0100\n"
+"PO-Revision-Date: 2012-11-07 23:01+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Slovak (Slovakia) (http://www.transifex.com/projects/p/owncloud/language/sk_SK/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,19 +27,23 @@ msgstr "Nepodporovaný typ súboru pre import"
 msgid "Bookmarks"
 msgstr "Záložky"
 
-#: js/addBm.js:42 js/bookmarks.js:241
+#: js/addBm.js:42 js/bookmarks.js:230
 msgid "Tags"
 msgstr "Značky"
 
-#: js/bookmarks.js:176
+#: js/bookmarks.js:22
+msgid "Filter by tag"
+msgstr ""
+
+#: js/bookmarks.js:132
 msgid "Edit bookmark"
 msgstr "Upraviť záložku"
 
-#: js/bookmarks.js:393
+#: js/bookmarks.js:369
 msgid "Are you sure you want to remove this tag from every entry?"
 msgstr "Naozaj ste si istý, že chcete odstrániť túto značku z každého záznamu?"
 
-#: js/bookmarks.js:394
+#: js/bookmarks.js:370
 msgid "Warning"
 msgstr "Varovanie"
 
@@ -79,41 +83,35 @@ msgstr "Popis stránky"
 msgid "Save"
 msgstr "Uložiť"
 
-#: templates/js_tpl.php:6 templates/js_tpl.php:60 templates/js_tpl.php:76
-msgid "Edit"
-msgstr "Upraviť"
-
-#: templates/js_tpl.php:10 templates/js_tpl.php:64 templates/js_tpl.php:80
+#: templates/js_tpl.php:6 templates/js_tpl.php:64
 msgid "Delete"
 msgstr "Zmazať"
+
+#: templates/js_tpl.php:20 templates/js_tpl.php:60
+msgid "Edit"
+msgstr "Upraviť"
 
 #: templates/js_tpl.php:49
 msgid "Cancel"
 msgstr "Zrušiť"
 
-#: templates/list.php:12
+#: templates/list.php:14
+msgid ""
+"Drag this to your browser bookmarks and click it, when you want to bookmark "
+"a webpage quickly:"
+msgstr "Presuňte toto do vášho prehliadača a kliknite ak chcete aktuálnu stránku uložiť do záložiek."
+
+#: templates/list.php:15
+msgid "Read later"
+msgstr "Prečítať neskôr"
+
+#: templates/list.php:22
 msgid "Address"
 msgstr "Adresa"
 
-#: templates/list.php:13
-msgid "Add bookmark"
-msgstr "Pridať záložku"
-
-#: templates/list.php:16
-msgid "List"
-msgstr "Zoznam"
-
-#: templates/list.php:17
-msgid "Image"
-msgstr "Obrázok"
-
-#: templates/list.php:22
-msgid "Hide"
-msgstr "Skyť"
-
 #: templates/list.php:23
-msgid "Show"
-msgstr "Zobraziť"
+msgid "Add"
+msgstr ""
 
 #: templates/list.php:30
 msgid "Related Tags"
@@ -123,32 +121,26 @@ msgstr "Podobné značky"
 msgid "Settings"
 msgstr "Nastavenia"
 
-#: templates/list.php:53
+#: templates/list.php:52
 msgid "You have no bookmarks"
 msgstr "Nemáte záložky"
+
+#: templates/list.php:57
+msgid "You can also try to import a bookmark file"
+msgstr ""
 
 #: templates/settings.php:11
 msgid "Bookmarklet"
 msgstr ""
 
-#: templates/settings.php:13
-msgid ""
-"Drag this to your browser bookmarks and click it, when you want to bookmark "
-"a webpage quickly:"
-msgstr "Presuňte toto do vášho prehliadača a kliknite ak chcete aktuálnu stránku uložiť do záložiek."
-
-#: templates/settings.php:19
-msgid "Read later"
-msgstr "Prečítať neskôr"
-
-#: templates/settings.php:31
+#: templates/settings.php:23
 msgid "Export & Import"
 msgstr ""
 
-#: templates/settings.php:32
+#: templates/settings.php:24
 msgid "Export"
 msgstr "Export"
 
-#: templates/settings.php:34
+#: templates/settings.php:26
 msgid "Import"
 msgstr "Import"
