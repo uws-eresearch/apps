@@ -58,7 +58,7 @@ class AddressbookProvider implements \OC\IAddressBook {
 	* @return string defining the technical unique key
 	*/
 	public function getKey() {
-		return "What?";
+		return $this->getAddressbook()['uri'];
 	}
 
 	/**
