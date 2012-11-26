@@ -80,14 +80,42 @@ class AddressbookProvider implements \OC\IAddressBook {
 	* @param $pattern
 	* @param $searchProperties
 	* @param $options
-	* @return mixed
+	* @return array|false
 	*/
 	public function search($pattern, $searchProperties, $options) {
-		// dummy results
-		return array(
-			array('id' => 0, 'FN' => 'Thomas Müller', 'EMAIL' => 'a@b.c', 'GEO' => '37.386013;-122.082932'),
-			array('id' => 5, 'FN' => 'Thomas Tanghus', 'EMAIL' => array('d@e.f', 'g@h.i')),
-		);
+		$ids = array();
+		$results = array();
+		$query = 'SELECT DISTINCT `contactid` FROM `*PREFIX*contacts_cards_properties` WHERE 1 AND (';
+		foreach($searchProperties as $property) {
+			$query .= '(`name` = "' . $property . '" AND `value` LIKE "%' . $pattern . '%") OR ';
+		}
+		$query = substr($query, 0, strlen($query) - 4);
+		$query .= ')';
+
+		$stmt = \OCP\DB::prepare($query);
+		$result = $stmt->execute();
+		if (\OC_DB::isError($result)) {
+			\OC_Log::write('contacts', __METHOD__ . 'DB error: ' . \OC_DB::getErrorMessage($result), 
+				\OCP\Util::ERROR);
+			return false;
+		}
+		while( $row = $result->fetchRow()) {
+			$ids[] = $row['contactid'];
+		}
+
+		$query = 'SELECT * FROM `*PREFIX*contacts_cards_properties` WHERE `contactid` IN (' . join(',', array_fill(0, count($ids), '?')) . ')';
+
+		$stmt = \OCP\DB::prepare($query);
+		$result = $stmt->execute($ids);
+		while( $row = $result->fetchRow()) {
+			if(!isset($results[$row['contactid']])) {
+				$results[$row['contactid']] = array('id' => $row['contactid'], $row['name'] => $row['value']);
+			} else {
+				$results[$row['contactid']][$row['name']] = $row['value'];
+			}
+		}
+		
+		return $results;
 	}
 
 	/**
@@ -107,6 +135,26 @@ class AddressbookProvider implements \OC\IAddressBook {
 	* @return mixed
 	*/
 	public function delete($id) {
+		try {
+			$query = 'SELECT * FROM `*PREFIX*contacts_cards` WHERE `id` = ? AND `addressbookid` = ?';
+			$stmt = \OCP\DB::prepare($query);
+			$result = $stmt->execute(array($id, $this->id));
+			if (\OC_DB::isError($result)) {
+				\OC_Log::write('contacts', __METHOD__ . 'DB error: ' . \OC_DB::getErrorMessage($result), 
+					\OCP\Util::ERROR);
+				return false;
+			}
+			if($result->numRows() === 0) {
+				\OC_Log::write('contacts', __METHOD__ 
+					. 'Contact with id ' . $id . 'doesn\'t belong to addressbook with id ' . $this->id, 
+					\OCP\Util::ERROR);
+				return false;
+			}
+		} catch(\Exception $e) {
+			\OCP\Util::writeLog('contacts', __METHOD__ . ', exception: ' . $e->getMessage(), 
+				\OCP\Util::ERROR);
+			return false;
+		}
 		return VCard::delete($id);
 	}
 }
