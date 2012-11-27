@@ -76,6 +76,43 @@ class AddressbookProvider implements \OC\IAddressBook {
 		return $this->getAddressbook()['permissions'];
 	}
 
+	private function addProperty(&$results, $row) {
+		if(!$row['name'] || !$row['value']) {
+			return false;
+		}
+
+		$value = null;
+
+		switch($row['name']) {
+			case 'N':
+			case 'ORG':
+			case 'ADR':
+			case 'CATEGORIES':
+				$property = \Sabre\VObject\Property::create($row['name'], $row['value']);
+				$value = $property->getParts();
+				break;
+			default:
+				$value = $value = strtr($row['value'], array('\,' => ',', '\;' => ';'));
+				break;
+		}
+		
+		if(in_array($row['name'], App::$multi_properties)) {
+			if(!isset($results[$row['contactid']])) {
+				$results[$row['contactid']] = array('id' => $row['contactid'], $row['name'] => array($value));
+			} elseif(!isset($results[$row['contactid']][$row['name']])) {
+				$results[$row['contactid']][$row['name']] = array($value);
+			} else {
+				$results[$row['contactid']][$row['name']][] = $value;
+			}
+		} else {
+			if(!isset($results[$row['contactid']])) {
+				$results[$row['contactid']] = array('id' => $row['contactid'], $row['name'] => $value);
+			} elseif(!isset($results[$row['contactid']][$row['name']])) {
+				$results[$row['contactid']][$row['name']] = $value;
+			}
+		}
+	}
+	
 	/**
 	* @param $pattern
 	* @param $searchProperties
@@ -108,11 +145,12 @@ class AddressbookProvider implements \OC\IAddressBook {
 		$stmt = \OCP\DB::prepare($query);
 		$result = $stmt->execute($ids);
 		while( $row = $result->fetchRow()) {
-			if(!isset($results[$row['contactid']])) {
-				$results[$row['contactid']] = array('id' => $row['contactid'], $row['name'] => $row['value']);
+			$this->addProperty($results, $row);
+			/*if(!isset($results[$row['contactid']])) {
+				$results[$row['contactid']] = array('id' => $row['contactid'], $row['name'] => $value);
 			} else {
-				$results[$row['contactid']][$row['name']] = $row['value'];
-			}
+				$results[$row['contactid']][$row['name']] = $value;
+			}*/
 		}
 		
 		return $results;
