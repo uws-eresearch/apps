@@ -26,7 +26,10 @@ namespace OCA\Contacts;
  * This class manages our addressbooks.
  */
 class AddressbookProvider implements \OC\IAddressBook {
-	
+
+	const CONTACT_TABLE = '*PREFIX*contacts_cards';
+	const PROPERTY_TABLE = '*PREFIX*contacts_cards_properties';
+
 	/**
 	 * Addressbook id
 	 * @var integer
@@ -122,7 +125,7 @@ class AddressbookProvider implements \OC\IAddressBook {
 	public function search($pattern, $searchProperties, $options) {
 		$ids = array();
 		$results = array();
-		$query = 'SELECT DISTINCT `contactid` FROM `*PREFIX*contacts_cards_properties` WHERE 1 AND (';
+		$query = 'SELECT DISTINCT `contactid` FROM `' . self::PROPERTY_TABLE . '` WHERE 1 AND (';
 		foreach($searchProperties as $property) {
 			$query .= '(`name` = "' . $property . '" AND `value` LIKE "%' . $pattern . '%") OR ';
 		}
@@ -140,17 +143,18 @@ class AddressbookProvider implements \OC\IAddressBook {
 			$ids[] = $row['contactid'];
 		}
 
-		$query = 'SELECT * FROM `*PREFIX*contacts_cards_properties` WHERE `contactid` IN (' . join(',', array_fill(0, count($ids), '?')) . ')';
+		$query = 'SELECT `' . self::CONTACT_TABLE . '`.`addressbookid`, `' . self::PROPERTY_TABLE . '`.`contactid`, `' 
+			. self::PROPERTY_TABLE . '`.`name`, `' . self::PROPERTY_TABLE . '`.`value` FROM `' 
+			. self::PROPERTY_TABLE . '`,`' . self::CONTACT_TABLE . '` WHERE `'
+			. self::CONTACT_TABLE . '`.`addressbookid` = \'' . $this->id . '\' AND `'
+			. self::PROPERTY_TABLE . '`.`contactid` = `' . self::CONTACT_TABLE . '`.`id` AND `' 
+			. self::PROPERTY_TABLE . '`.`contactid` IN (' . join(',', array_fill(0, count($ids), '?')) . ')';
 
+		//\OC_Log::write('contacts', __METHOD__ . 'DB query: ' . $query, \OCP\Util::DEBUG);
 		$stmt = \OCP\DB::prepare($query);
 		$result = $stmt->execute($ids);
 		while( $row = $result->fetchRow()) {
 			$this->addProperty($results, $row);
-			/*if(!isset($results[$row['contactid']])) {
-				$results[$row['contactid']] = array('id' => $row['contactid'], $row['name'] => $value);
-			} else {
-				$results[$row['contactid']][$row['name']] = $value;
-			}*/
 		}
 		
 		return $results;
