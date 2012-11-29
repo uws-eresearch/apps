@@ -21,16 +21,15 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 
-require_once \OC_App::getAppPath('apptemplate') . '/appinfo/bootstrap.php';
+require_once \OC_App::getAppPath('apptemplate_advanced') . '/appinfo/bootstrap.php';
 
 $container = createDIContainer();
 
 $security = $container['Security'];
-$security->setCSRFCheck(false);
 $security->runChecks();
 
 $controller = $container['SettingsController'];
-return $controller->index()->fetchPage();
+return $controller->index()->render();

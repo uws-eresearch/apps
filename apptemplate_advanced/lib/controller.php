@@ -21,13 +21,15 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 
 class Controller {
 
 	protected $api;
-	protected $request;
+	protected $appName;
+
+	private $request;
 
 	/**
 	 * @param API $api: an api wrapper instance
@@ -36,6 +38,7 @@ class Controller {
 	public function __construct($api, $request){
 		$this->api = $api;
 		$this->request = $request;
+		$this->appName = $api->getAppName();
 	}
 
 
@@ -44,9 +47,10 @@ class Controller {
 	 * @param string $key: the key which you want to access in the $_POST or
 	 *                     $_GET array. If both arrays store things under the same
 	 *                     key, return the value in $_POST
+	 * @param $default: If the key is not found, this value will be returned
 	 * @return: the content of the array
 	 */
-	protected function params($key){
+	protected function params($key, $default=null){
 		$postValue = $this->request->getPOST($key);
 		$getValue = $this->request->getGET($key);
 		
@@ -57,18 +61,9 @@ class Controller {
 		if($getValue !== null){
 			return $getValue;
 		}
-	}
 
+		return $default;
 
-	/**
-	 * @brief Shortcut for creating a template for the current app#
-	 * @param string $templateName: the name of the template in the templates
-	 *                              directory without the .php suffix
-	 * @param bool $userPage: 'user' renders are normal page, 'admin' an admin page
-	 * @return a new Template instance
-	 */
-	protected function getTemplate($templateName, $page='user'){
-		return new \OCP\Template($this->api->getAppName(), $templateName, $page);		
 	}
 
 }

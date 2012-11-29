@@ -1,7 +1,7 @@
 <?php
 
 /**
-* ownCloud - App Template Example
+* ownCloud - App Template plugin
 *
 * @author Bernhard Posselt
 * @copyright 2012 Bernhard Posselt nukeawhale@gmail.com 
@@ -21,29 +21,23 @@
 *
 */
 
-namespace OCA\AppTemplate;
+class APIMock {
+
+	public $setSystemValueData;
+
+	public function __construct(){
+		$this->setSystemValueData = array();
+	}
 
 
-class AjaxController extends Controller {
+	public function getAppName(){
+		return 'apptemplate_advanced';
+	}
+
+
+	public function setSystemValue($key, $value){
+		$this->setSystemValueData[$key] = $value;
+	}
+
 	
-
-	/**
-	 * @param Request $request: an instance of the request
-	 * @param API $api: an api wrapper instance
-	 */
-	public function __construct($api, $request){
-		parent::__construct($api, $request);
-	}
-
-
-	/**
-	 * @brief sets a global system value
-	 * @param array $urlParams: an array with the values, which were matched in 
-	 *                          the routes file
-	 */
-	public function setSystemValue($urlParams=array()){
-		$value = $this->params['somesetting'];
-		$this->api->setSystemValue('somesetting', $value);
-	}
-
 }

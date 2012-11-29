@@ -21,7 +21,7 @@
 *
 */
 
-namespace OCA\AppTemplate;
+namespace OCA\AppTemplateAdvanced;
 
 
 /**
@@ -73,6 +73,25 @@ class Security {
 	 */
 	public function runChecks() {
 
+		if($this->loggedInCheck){
+			\OCP\JSON::checkLoggedIn();
+		}
+
+		if($this->appEnabledCheck){
+			\OCP\JSON::checkAppEnabled($this->appName);
+		}
+
+		if($this->isAdminCheck){
+			\OCP\JSON::checkAdminUser();
+		}
+
+	}
+
+
+	/**
+	 * Runs all the security checks for AJAX requests
+	 */
+	public function runAjaxChecks(){
 		if($this->csrfCheck){
 			\OCP\JSON::callCheck();
 		}
@@ -86,7 +105,7 @@ class Security {
 		}
 
 		if($this->isAdminCheck){
-			\OCP\User::checkAdminUser();
+			\OCP\JSON::checkAdminUser();
 		}
 
 	}
