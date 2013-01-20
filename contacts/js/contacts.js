@@ -110,6 +110,15 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		if($elem) {
+			// If there's already a property of this type enable setting as preferred.
+			if(this.multi_properties.indexOf(name) !== -1 && this.data[name] && this.data[name].length > 0) {
+				var selector = 'li[data-element="' + name.toLowerCase() + '"]';
+				$.each(this.$fullelem.find(selector), function(idx, elem) {
+					$(elem).find('input.parameter[value="PREF"]').show();
+				});
+			} else if(this.multi_properties.indexOf(name) !== -1) {
+				$elem.find('input.parameter[value="PREF"]').hide();
+			}
 			$elem.find('select.type[name="parameters[TYPE][]"]')
 				.combobox({
 					singleclick: true,
@@ -119,6 +128,7 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	Contact.prototype.deleteProperty = function(params) {
+		// TODO: Disable PREF if less than 2 multi_properties.
 		var obj = params.obj;
 		if(!this.enabled) {
 			return;
@@ -472,17 +482,17 @@ OC.Contacts = OC.Contacts || {};
 				self.access.id = parseInt(jsondata.data.aid);
 				self.data = jsondata.data.details;
 				// Add contact to current group
-				if(self.groupprops && self.groupprops.currentgroup.name !== 'all'
-					&& self.groupprops.currentgroup.name !== 'fav') {
+				if(self.groupprops && self.groupprops.currentgroup.id !== 'all'
+					&& self.groupprops.currentgroup.id !== 'fav') {
 					if(!self.data.CATEGORIES) {
-						self.data.CATEGORIES = [{value:[self.groupprops.currentgroup.name], parameters:[]}];
-						// Save to vCard
-						self.saveProperty({name:'CATEGORIES', value:self.data.CATEGORIES[0].value.join(',') });
-						// Tell OC.Contacts to save in backend
+						self.addToGroup(self.groupprops.currentgroup.name);
 						$(document).trigger('request.contact.addtogroup', {
 							id: self.id,
 							groupid: self.groupprops.currentgroup.id
 						});
+						self.$groupSelect.find('option[value="' + self.groupprops.currentgroup.id + '"]')
+							.attr('selected', 'selected');
+						self.$groupSelect.multiselect('refresh');
 					}
 				}
 				$(document).trigger('status.contact.added', {
@@ -540,7 +550,13 @@ OC.Contacts = OC.Contacts || {};
 		}
 
 		if($(obj).hasClass('propertycontainer')) {
-			q += '&value=' + encodeURIComponent($(obj).val());
+			if($(obj).is('select[data-element="categories"]')) {
+				$.each($(obj).find(':selected'), function(idx, e) {
+					q += '&value=' + encodeURIComponent($(e).text());
+				});
+			} else {
+				q += '&value=' + encodeURIComponent($(obj).val());
+			}
 		} else {
 			var $elements = this.propertyContainerFor(obj)
 				.find('input.value,select.value,textarea.value,.parameter');
@@ -638,8 +654,39 @@ OC.Contacts = OC.Contacts || {};
 	 * @return A jquery object to be inserted in the DOM
 	 */
 	Contact.prototype.renderContact = function(groupprops) {
-		this.groupprops = groupprops;
 		var self = this;
+		this.groupprops = groupprops;
+		
+		var buildGroupSelect = function(availableGroups) {
+			//this.$groupSelect.find('option').remove();
+			$.each(availableGroups, function(idx, group) {
+				var $option = $('<option value="' + group.id + '">' + group.name + '</option>');
+				if(self.inGroup(group.name)) {
+					$option.attr('selected', 'selected');
+				}
+				self.$groupSelect.append($option);
+			});
+			self.$groupSelect.multiselect({
+				header: false,
+				selectedList: 3,
+				noneSelectedText: self.$groupSelect.attr('title'),
+				selectedText: t('contacts', '# groups')
+			});
+			self.$groupSelect.bind('multiselectclick', function(event, ui) {
+				var action = ui.checked ? 'addtogroup' : 'removefromgroup';
+				console.assert(typeof self.id === 'number', 'ID is not a number')
+				$(document).trigger('request.contact.' + action, {
+					id: self.id,
+					groupid: parseInt(ui.value)
+				});
+				if(ui.checked) {
+					self.addToGroup(ui.text);
+				} else {
+					self.removeFromGroup(ui.text);
+				}
+			});
+		};
+		
 		var n = this.getPreferredValue('N', ['', '', '', '', '']);
 		//console.log('Contact.renderContact', this.data);
 		var values = this.data
@@ -667,6 +714,10 @@ OC.Contacts = OC.Contacts || {};
 		this.$fullelem.on('submit', function() {
 			return false;
 		});
+		
+		this.$groupSelect = this.$fullelem.find('#contactgroups');
+		buildGroupSelect(groupprops.groups);
+		
 		this.$addMenu = this.$fullelem.find('#addproperty');
 		this.$addMenu.on('change', function(event) {
 			//console.log('add', $(this).val());
@@ -741,9 +792,10 @@ OC.Contacts = OC.Contacts || {};
 		});
 
 		this.$fullelem.on('change', '.value,.parameter', function(event) {
-			if(this.value === this.defaultValue) {
+			if($(this).hasClass('value') && this.value === this.defaultValue) {
 				return;
 			}
+			console.log('change', this.defaultValue, this.value);
 			self.saveProperty({obj:event.target});
 		});
 
@@ -802,7 +854,7 @@ OC.Contacts = OC.Contacts || {};
 							case 'URL':
 							case 'EMAIL':
 								$property = self.renderStandardProperty(name.toLowerCase(), property);
-								if(self.data[name].length >= 1) {
+								if(self.data[name].length === 1) {
 									$property.find('input:checkbox[value="PREF"]').hide();
 								}
 								break;
@@ -811,6 +863,9 @@ OC.Contacts = OC.Contacts || {};
 								break;
 							case 'IMPP':
 								$property = self.renderIMProperty(property);
+								if(self.data[name].length === 1) {
+									$property.find('input:checkbox[value="PREF"]').hide();
+								}
 								break;
 						}
 						if(!$property) {
@@ -1160,17 +1215,17 @@ OC.Contacts = OC.Contacts || {};
 	 * @returns Boolean
 	 */
 	Contact.prototype.inGroup = function(name) {
-		if(!this.data.CATEGORIES) {
-			return false;
-		}
+		var categories = this.getPreferredValue('CATEGORIES', []);
+		var found = false;
 
-		categories = this.data.CATEGORIES[0].value;
-		for(var i in categories) {
-			if(typeof categories[i] === 'string' && (name.toLowerCase() === categories[i].toLowerCase())) {
-				return true;
+		$.each(categories, function(idx, category) {
+			if(name.toLowerCase() == category.trim().toLowerCase()) {
+				found = true
+				return false;
 			}
-		}
-		return false;
+		});
+
+		return found;
 	};
 
 	/**
@@ -1412,7 +1467,9 @@ OC.Contacts = OC.Contacts || {};
 			timeouthandler:function() {
 				console.log('timeout');
 				// Don't fire all deletes at once
-				self.deletionTimer = setInterval('self.deleteContacts()', 500);
+				self.deletionTimer = setInterval(function() {
+					self.deleteContacts();
+				}, 500);
 			},
 			clickhandler:function() {
 				console.log('clickhandler');
@@ -1542,6 +1599,9 @@ OC.Contacts = OC.Contacts || {};
 	};
 
 	ContactList.prototype.setCurrent = function(id, deselect_other) {
+		if(!id) {
+			return;
+		}
 		var self = this;
 		if(deselect_other === true) {
 			$.each(this.contacts, function(contact) {
@@ -1615,7 +1675,7 @@ OC.Contacts = OC.Contacts || {};
 					self.contacts[parseInt(contact.id)]
 						= new Contact(
 							self,
-							contact.id,
+							parseInt(contact.id),
 							self.addressbooks[parseInt(contact.aid)],
 							contact.data,
 							self.$contactListItemTemplate,
@@ -1630,7 +1690,7 @@ OC.Contacts = OC.Contacts || {};
 						revert: 'invalid',
 						//containment: '#content',
 						opacity: 0.8, helper: 'clone',
-						zIndex: 1000,
+						zIndex: 1000
 					});
 					if(items.length === 100) {
 						self.$contactList.append(items);
