@@ -1,29 +1,12 @@
 <?php
 
-// @TODO remove after debugging
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
-
-function pr($thing) {
-    echo '<pre>';
-    if (is_null($thing))
-        echo 'NULL';
-    elseif (is_bool($thing))
-        echo $thing ? 'TRUE' : 'FALSE';
-    else
-        print_r($thing);
-    echo '</pre>' . "\n";
-    return ($thing) ? true : false; // for testing purposes
-}
-
 // check if we are a user
 OCP\User::checkLoggedIn();
 OCP\App::checkAppEnabled('search');
 
-// load files
+// add CSS
 OCP\Util::addStyle('search', 'list-view');
-//OCP\Util::addScript('search', 'fileactions');
-//OCP\Util::addScript('search', 'ajaxloader');
+
 // add JS
 OCP\Util::addScript('search', 'columns');
 
