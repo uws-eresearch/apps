@@ -7,11 +7,11 @@ ini_set('display_errors', '1');
 function pr($thing) {
     echo '<pre>';
     if (is_null($thing))
-	echo 'NULL';
+        echo 'NULL';
     elseif (is_bool($thing))
-	echo $thing ? 'TRUE' : 'FALSE';
+        echo $thing ? 'TRUE' : 'FALSE';
     else
-	print_r($thing);
+        print_r($thing);
     echo '</pre>' . "\n";
     return ($thing) ? true : false; // for testing purposes
 }
@@ -24,7 +24,6 @@ OCP\App::checkAppEnabled('search');
 OCP\Util::addStyle('search', 'list-view');
 //OCP\Util::addScript('search', 'fileactions');
 //OCP\Util::addScript('search', 'ajaxloader');
-
 // add JS
 OCP\Util::addScript('search', 'columns');
 
@@ -33,10 +32,9 @@ OCP\App::setActiveNavigationEntry('search');
 
 // get query
 $query = (isset($_GET['query'])) ? $_GET['query'] : false;
-if($query === false && array_key_exists('search_query', $_SESSION)){
+if ($query === false && array_key_exists('search_query', $_SESSION)) {
     $query = $_SESSION['search_query'];
-}
-else{
+} else {
     $_SESSION['search_query'] = $query;
 }
 
@@ -44,11 +42,10 @@ else{
 $results = array();
 if ($query) {
     // if Lucene is available, only search using it
-    if(OCP\Config::getUserValue(OCP\User::getUser(), 'search', 'lucene_enabled', 'no') == 'yes'){
-	$results = OC_Search::search($query, 'OC_Search_Provider_Lucene');
-    }
-    else{
-	$results = OC_Search::search($query);
+    if (OCP\Config::getUserValue(OCP\User::getUser(), 'search', 'lucene_enabled', 'no') == 'yes') {
+        $results = OC_Search::search($query, 'OC_Search_Provider_Lucene');
+    } else {
+        $results = OC_Search::search($query);
     }
 }
 
@@ -74,13 +71,13 @@ foreach ($results as $class => $class_results) {
     // create result rows <tr> HTML
     $tbody = '';
     foreach ($class_results as $result) {
-	// run HTML formatting
-	$result->formatToHtml();
-	// do templating
-	$tr = new OCP\Template('search', 'part.result');
-	$tr->assign('result', $result, false);
-	$tr->assign('columns', $columns, true);
-	$tbody .= $tr->fetchPage() . "\n\t";
+        // run HTML formatting
+        $result->formatToHtml();
+        // do templating
+        $tr = new OCP\Template('search', 'part.result');
+        $tr->assign('result', $result, false);
+        $tr->assign('columns', $columns, true);
+        $tbody .= $tr->fetchPage() . "\n\t";
     }
 
     // add to html
