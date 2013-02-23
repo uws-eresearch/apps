@@ -207,7 +207,6 @@ class VCardObject extends VObject\Component\VCard {
 			foreach($this->children as &$property) {
 				$this->decodeProperty($property);
 				$this->formatPropertyTypes($property);
-				\OCP\Util::writeLog('contacts', __METHOD__.' upgrade: '.$property->name, \OCP\Util::DEBUG);
 				switch((string)$property->name) {
 					case 'LOGO':
 					case 'SOUND':
