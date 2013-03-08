@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-07 00:02+0100\n"
+"Project-Id-Version: ownCloud Apps 5.0.0\n"
+"Report-Msgid-Bugs-To: translations@owncloud.org\n"
+"POT-Creation-Date: 2013-03-08 00:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,11 +97,11 @@ msgstr ""
 msgid "Cannot save property of type \"%s\" as array"
 msgstr ""
 
-#: ajax/contact/saveproperty.php:180
+#: ajax/contact/saveproperty.php:179
 msgid "Missing IM parameter."
 msgstr ""
 
-#: ajax/contact/saveproperty.php:184
+#: ajax/contact/saveproperty.php:183
 msgid "Unknown IM: "
 msgstr ""
 
@@ -229,131 +229,131 @@ msgstr ""
 msgid "%d_selected_contacts"
 msgstr ""
 
-#: js/app.js:268 js/app.js:282
+#: js/app.js:256 js/app.js:270
 msgid "Add to..."
 msgstr ""
 
-#: js/app.js:272 js/app.js:284
+#: js/app.js:260 js/app.js:272
 msgid "Remove from..."
 msgstr ""
 
-#: js/app.js:289
+#: js/app.js:277
 msgid "Add group..."
 msgstr ""
 
-#: js/app.js:357
+#: js/app.js:348
 msgid "Indexing contacts"
 msgstr ""
 
-#: js/app.js:454
+#: js/app.js:446
 msgid "Select photo"
 msgstr ""
 
-#: js/app.js:505 js/app.js:531 js/app.js:1502 js/app.js:1614
+#: js/app.js:497 js/app.js:523 js/app.js:1532 js/app.js:1644
 #: js/contacts.js:160 js/contacts.js:263 js/contacts.js:485
 msgid "Network or server error. Please inform administrator."
 msgstr ""
 
-#: js/app.js:671 js/app.js:710
+#: js/app.js:665 js/app.js:704
 msgid "Error adding to group."
 msgstr ""
 
-#: js/app.js:739
+#: js/app.js:733
 msgid "Error removing from group."
 msgstr ""
 
-#: js/app.js:769
+#: js/app.js:763
 msgid "There was an error opening a mail composer."
 msgstr ""
 
-#: js/app.js:819
+#: js/app.js:813
 msgid "Deleting done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:896
+#: js/app.js:890
 msgid "Add address book"
 msgstr ""
 
-#: js/app.js:992
+#: js/app.js:1005
 msgid "Import done. Click here to cancel reloading."
 msgstr ""
 
-#: js/app.js:1033
+#: js/app.js:1046
 msgid "Not all files uploaded. Retrying..."
 msgstr ""
 
-#: js/app.js:1039
+#: js/app.js:1052
 msgid "Something went wrong with the upload, please retry."
 msgstr ""
 
-#: js/app.js:1039 js/app.js:1549 js/settings.js:25 js/settings.js:45
+#: js/app.js:1052 js/app.js:1579 js/settings.js:25 js/settings.js:45
 #: js/settings.js:75 js/settings.js:112
 msgid "Error"
 msgstr ""
 
-#: js/app.js:1049
+#: js/app.js:1062
 msgid "Importing from {filename}..."
 msgstr ""
 
-#: js/app.js:1052
+#: js/app.js:1065
 msgid "{success} imported, {failed} failed."
 msgstr ""
 
-#: js/app.js:1060
+#: js/app.js:1073
 msgid "Importing..."
 msgstr ""
 
-#: js/app.js:1083
+#: js/app.js:1096
 msgid "Unable to upload your file as it is a directory or has 0 bytes"
 msgstr ""
 
-#: js/app.js:1083
+#: js/app.js:1096
 msgid "Upload Error"
 msgstr ""
 
-#: js/app.js:1090 js/app.js:1377
+#: js/app.js:1103 js/app.js:1407
 msgid ""
 "The file you are trying to upload exceed the maximum size for file uploads "
 "on this server."
 msgstr ""
 
-#: js/app.js:1090
+#: js/app.js:1103
 msgid "Upload too large"
 msgstr ""
 
-#: js/app.js:1130
+#: js/app.js:1143
 msgid "Pending"
 msgstr ""
 
-#: js/app.js:1273 templates/contacts.php:122
+#: js/app.js:1286 templates/contacts.php:122
 msgid "Add group"
 msgstr ""
 
-#: js/app.js:1366
+#: js/app.js:1395
 msgid "No files selected for upload."
 msgstr ""
 
-#: js/app.js:1467
+#: js/app.js:1497
 msgid "Edit profile picture"
 msgstr ""
 
-#: js/app.js:1485 js/contacts.js:1134
+#: js/app.js:1515 js/contacts.js:1134
 msgid "Error loading profile picture."
 msgstr ""
 
-#: js/app.js:1537
+#: js/app.js:1567
 msgid "Enter name"
 msgstr ""
 
-#: js/app.js:1538
+#: js/app.js:1568
 msgid "Enter description"
 msgstr ""
 
-#: js/app.js:1541
+#: js/app.js:1571
 msgid "Select addressbook"
 msgstr ""
 
-#: js/app.js:1549
+#: js/app.js:1579
 msgid "The address book name cannot be empty."
 msgstr ""
 
@@ -369,17 +369,17 @@ msgstr ""
 msgid "# groups"
 msgstr ""
 
-#: js/contacts.js:1490
+#: js/contacts.js:1491
 msgid ""
 "Some contacts are marked for deletion, but not deleted yet. Please wait for "
 "them to be deleted."
 msgstr ""
 
-#: js/contacts.js:1501
+#: js/contacts.js:1502
 msgid "Click to undo deletion of {num} contacts"
 msgstr ""
 
-#: js/contacts.js:1516
+#: js/contacts.js:1517
 msgid "Cancelled deletion of {num}"
 msgstr ""
 
@@ -601,7 +601,7 @@ msgstr ""
 msgid "There was an error deleting properties for this contact."
 msgstr ""
 
-#: lib/hooks.php:108
+#: lib/hooks.php:98
 msgid "{name}'s Birthday"
 msgstr ""
 
