@@ -5,7 +5,7 @@
 * @author Christian Reiner
 * @copyright 2012-2013 Christian Reiner <foss@christian-reiner.info>
 * @license GNU Affero General Public license (AGPL)
-* @link information 
+* @link information http://apps.owncloud.com/content/show.php?content=157091
 * @link repository https://svn.christian-reiner.info/svn/app/oc/fluxx-compensator
 *
 * This library is free software; you can redistribute it and/or
@@ -41,9 +41,11 @@
 		Simply click the handler to hide/show the navigation panel. To move the handler to where you want it to be, just hold the handler and drag it.
 		The older amongst us will know where the name 'FluXX Compensator (Y)' comes from... ;-)
 	</description>
-	<version>0.1.0</version>
+	<version>0.1.1</version>
 	<licence>AGPL</licence>
 	<author>Christian Reiner</author>
-	<require>4.91</require>
+	<require>4.93</require>
 	<types><base/></types>
+	<remote/>
+	<public/>
 </info>
