@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Daisuke Deguchi <ddeguchi@is.nagoya-u.ac.jp>, 2012.
+# Daisuke Deguchi <ddeguchi@nagoya-u.jp>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"POT-Creation-Date: 2013-03-12 00:10+0100\n"
+"PO-Revision-Date: 2013-03-11 03:20+0000\n"
 "Last-Translator: Daisuke Deguchi <ddeguchi@nagoya-u.jp>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/owncloud/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -33,8 +34,8 @@ msgid "Please choose the export type:"
 msgstr "エクスポートタイプを選択してください:"
 
 #: templates/settings.php:11
-msgid "ownCloud instance (user data and database"
-msgstr "ownCloud インスタンス (ユーザデータとデータベース"
+msgid "ownCloud instance (user data and database)"
+msgstr "ownCloud インスタンス (ユーザデータとデータベース)"
 
 #: templates/settings.php:12
 msgid "ownCloud system files"

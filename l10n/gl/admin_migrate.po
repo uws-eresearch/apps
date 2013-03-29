@@ -3,14 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# <mbouzada@gmail.com>, 2012.
 #   <mbouzada@gmail.com>, 2012.
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
 # Xosé M. Lamas <correo.xmgz@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-02-12 12:48+0100\n"
-"PO-Revision-Date: 2013-02-12 10:06+0000\n"
+"POT-Creation-Date: 2013-03-12 00:10+0100\n"
+"PO-Revision-Date: 2013-03-10 09:40+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/owncloud/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -34,8 +36,8 @@ msgid "Please choose the export type:"
 msgstr "Escolla o tipo de exportación:"
 
 #: templates/settings.php:11
-msgid "ownCloud instance (user data and database"
-msgstr "Instancia de ownCloud (datos de usuario e bases de datos)"
+msgid "ownCloud instance (user data and database)"
+msgstr "Instancia de ownCloud (datos do usuario e base de datos)"
 
 #: templates/settings.php:12
 msgid "ownCloud system files"

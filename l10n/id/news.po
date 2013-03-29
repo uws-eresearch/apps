@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ownCloud\n"
 "Report-Msgid-Bugs-To: http://bugs.owncloud.org/\n"
-"POT-Creation-Date: 2013-03-06 00:04+0100\n"
-"PO-Revision-Date: 2013-03-05 14:00+0000\n"
-"Last-Translator: w41l <walecha99@gmail.com>\n"
+"POT-Creation-Date: 2013-03-27 00:01+0100\n"
+"PO-Revision-Date: 2013-03-26 23:02+0000\n"
+"Last-Translator: I Robot <owncloud-bot@tmit.eu>\n"
 "Language-Team: Indonesian (http://www.transifex.com/projects/p/owncloud/language/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,41 +20,9 @@ msgstr ""
 "Language: id\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: 3rdparty/js/moment.min.js:6
-msgid "year"
-msgstr "tahun"
-
-#: appinfo/app.php:23 controller/news.controller.php:44 lib/search.php:31
+#: appinfo/app.php:50 search/provider.php:46
 msgid "News"
 msgstr "berita"
-
-#: db/feedmapper.php:172 db/itemmapper.php:262
-msgid "no title"
-msgstr "tidak ada judul"
-
-#: db/foldermapper.php:127
-msgid "no name"
-msgstr "tidak bernama"
-
-#: db/itemmapper.php:267
-msgid "no body"
-msgstr "tidak berisi"
-
-#: opmlexporter.php:44
-msgid "subscriptions in ownCloud - News"
-msgstr "Langganan dalam ownCloud - News"
-
-#: subscribe.php:30
-msgid "An error occurred"
-msgstr "Terjadi kesalahan"
-
-#: subscribe.php:32
-msgid "Nice! You have subscribed to "
-msgstr "Selamat! Anda telah berlangganan"
-
-#: subscribe.php:36
-msgid "You had already subscribed to this feed!"
-msgstr "Anda sudah berlangganan feed ini!"
 
 #: templates/part.addnew.php:7
 msgid "New"
@@ -68,35 +36,32 @@ msgstr "Tambah Langganan"
 msgid "Address must not be empty!"
 msgstr "Alamat haruslah tidak kosong!"
 
-#: templates/part.addnew.php:15
-msgid "Feed exists already!"
-msgstr "Feed sudah ada!"
-
 #: templates/part.addnew.php:16
-msgid "Could not add feed! Check if feed contains valid RSS!"
-msgstr "Feed gagal ditambahkan! Cek apakah feed mengandung RSS valid!"
+msgid ""
+"Could not add feed! Check if feed contains valid RSS or exists already!"
+msgstr ""
 
-#: templates/part.addnew.php:17
+#: templates/part.addnew.php:18
 msgid "Folder exists already"
 msgstr "Map sudah ada"
 
-#: templates/part.addnew.php:22
+#: templates/part.addnew.php:23
 msgid "Address"
 msgstr "alamat"
 
-#: templates/part.addnew.php:24 templates/part.addnew.php:27
+#: templates/part.addnew.php:25 templates/part.addnew.php:28
 msgid "Add"
 msgstr "tambah"
 
-#: templates/part.addnew.php:29
+#: templates/part.addnew.php:30
 msgid "New folder"
 msgstr "Map baru"
 
-#: templates/part.addnew.php:30
+#: templates/part.addnew.php:31
 msgid "Folder"
 msgstr "Folder"
 
-#: templates/part.addnew.php:35
+#: templates/part.addnew.php:36
 msgid "No folder"
 msgstr "Tanpa map"
 
@@ -112,24 +77,28 @@ msgstr "Artikel belum dibaca"
 msgid "All articles"
 msgstr "Semua artikel"
 
-#: templates/part.feed.unread.php:24 templates/part.listfeed.php:26
+#: templates/part.feed.unread.php:24 templates/part.listfeed.php:29
 #: templates/part.listfolder.php:33
 msgid "Mark all read"
 msgstr "Tandai terbaca semua"
 
-#: templates/part.items.php:34
+#: templates/part.items.php:27
+msgid "from"
+msgstr ""
+
+#: templates/part.items.php:32
+msgid "by"
+msgstr ""
+
+#: templates/part.items.php:39
 msgid "Cant play audio format"
 msgstr "Tidak dapat memainkan format audio"
 
-#: templates/part.items.php:48 templates/part.items.php:51
-msgid "Share"
-msgstr "berbagi"
-
-#: templates/part.items.php:55
+#: templates/part.items.php:52
 msgid "Keep unread"
 msgstr "Biarkan belum terbaca"
 
-#: templates/part.listfeed.php:17
+#: templates/part.listfeed.php:20
 msgid "Delete feed"
 msgstr "Hapus feed"
 
@@ -178,3 +147,19 @@ msgstr "Seret ini ke bookmark penjelajah anda dan klik jika anda ingin berlangga
 #: templates/part.subscribelet.php:17
 msgid "Subscribe"
 msgstr "Berlangganan"
+
+#: templates/subscribe.php:30
+msgid "An error occurred"
+msgstr "Terjadi kesalahan"
+
+#: templates/subscribe.php:32
+msgid "Nice! You have subscribed to "
+msgstr "Selamat! Anda telah berlangganan"
+
+#: templates/subscribe.php:36
+msgid "You had already subscribed to this feed!"
+msgstr "Anda sudah berlangganan feed ini!"
+
+#: utility/opmlexporter.php:44
+msgid "subscriptions in ownCloud - News"
+msgstr "Langganan dalam ownCloud - News"
