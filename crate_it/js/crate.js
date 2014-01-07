@@ -359,7 +359,7 @@ $(document).ready(function() {
 	});
 
 	$('#delete').click('click', function(event) { 
-	    var decision = confirm("All data of this crate will lost, are you sure?");
+	    var decision = confirm("All data of this crate will be lost, are you sure?");
 
 	    if (decision == true) {
 		$.ajax({
