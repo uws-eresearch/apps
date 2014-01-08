@@ -79,8 +79,16 @@ $(document).ready(function() {
 			if(typeof FileActions!=='undefined'){
 				var supportedMimes = new Array(
 					'application/msword',
+					'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+					'application/vnd.openxmlformats-officedocument.wordprocessingml.template',
 					'application/msexcel',
+					'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+					'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
 					'application/mspowerpoint',
+					'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+					'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+					'application/vnd.openxmlformats-officedocument.presentationml.template',
+					'application/vnd.openxmlformats-officedocument.presentationml.slide',
 					'application/vnd.oasis.opendocument.text', 
 					'application/vnd.oasis.opendocument.spreadsheet',
 					'application/vnd.oasis.opendocument.graphics',
