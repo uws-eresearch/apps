@@ -11,29 +11,20 @@ showPreview.lastTitle='';
 var oldcontent = '';
 
 function showPreview(dir,filename, type){
-	if(!showPreview.shown){
-		$("#editor").hide();
-		$('#content table').hide();
-		$("#controls").children().not('[class^="crumb "]').hide();
 		
-		//show home button 
-		if(!$("#controls div").hasClass('crumb')){
-			$("#controls").prepend('<div class="crumb" data-dir=""><a href="' + OC.linkTo('files', 'index.php')+'?dir="><img src="' +
-					OC.imagePath('core', 'places/home.svg') + '" class="svg" /></a></div>');
-		}
+	var viewer = getFilePath(dir, filename, type);
 		
-		oldcontent = $("#content").html();
-		var viewer = getFilePath(dir, filename, type);
+	$.fancybox({
+        'autoScale'     : false,
+        'transitionIn'  : 'none',
+        'transitionOut' : 'none',
+        'title'         : this.title,
+        'width'     : '75%',
+        'height'        : '75%',
+        'href'          : viewer,
+        'type'          : 'iframe'
+    });
 		
-		//window.location.hash = "#preview";
-		$("#content").html(oldcontent+'<iframe style="padding-top:1cm;width:100%;height:100%;display:block;" src="'+viewer+'" />');
-		
-		/*$('#content').html(oldcontent);
-		$("#editor").show();
-		$('#content table').show();
-		$("#controls").show();*/
-		$("#pageWidthOption").attr("selected","selected");
-	}
 }
 
 /*$(window).on("hashchange", function() {
@@ -95,13 +86,13 @@ $(document).ready(function() {
 					'application/vnd.oasis.opendocument.presentation');
 				for (var i = 0; i < supportedMimes.length; ++i){
 					var mime = supportedMimes[i];
-					FileActions.register(mime,'Prev',OC.PERMISSION_READ,'',function(filename){
-						showPreview($('#dir').val(),filename, 'pdf');
-					});
-					FileActions.register(mime,'html',OC.PERMISSION_READ,'',function(filename){
+					FileActions.register(mime,'Preview',OC.PERMISSION_READ,'',function(filename){
 						showPreview($('#dir').val(),filename, 'html');
 					});
-					FileActions.setDefault(mime,'Prev');
+					/*FileActions.register(mime,'Prev',OC.PERMISSION_READ,'',function(filename){
+						showPreview($('#dir').val(),filename, 'pdf');
+					});
+					FileActions.setDefault(mime,'Prev');*/
 				}
 			}
 		//}
