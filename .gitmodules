@@ -1,6 +1,4 @@
 [submodule "crate_it/3rdparty/swordappv2-php-library"]
 	path = crate_it/3rdparty/swordappv2-php-library
 	url = https://github.com/swordapp/swordappv2-php-library.git
-[submodule "file_previewer/3rdparty/fancyBox"]
-	path = file_previewer/3rdparty/fancyBox
-	url = https://github.com/fancyapps/fancyBox.git
+
