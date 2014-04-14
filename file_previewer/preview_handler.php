@@ -13,7 +13,16 @@ if (\OC\Files\Filesystem::isReadable($file)) {
 	list($storage) = \OC\Files\Filesystem::resolvePath($file);
 	if ($storage instanceof \OC\Files\Storage\Local) {
 		$full_path = \OC\Files\Filesystem::getLocalFile($file);
-		echo file_get_contents($full_path);
+		$current_content = file_get_contents($full_path);
+		$inject = '<script type="text/javascript" src="/owncloud/apps/file_previewer/js/j5slide_embed.js"></script>';
+		
+		$val = preg_match('/<head>.*<\/head>/s',$current_content, $matches);
+		if ($val) {
+			$pattern = '/(<head>)(.*)(<\/head>)/s';
+			$replacement = '$1$2' . $inject . '$3';
+			$current_content = preg_replace($pattern, $replacement, $current_content);
+		}
+		echo $current_content;
 		return;
 	}
 } elseif (!\OC\Files\Filesystem::file_exists($file)) {

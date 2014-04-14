@@ -6,6 +6,7 @@ set_include_path(get_include_path() . PATH_SEPARATOR . $dir);
 //load the required files
 OCP\Util::addscript('file_previewer', 'loader');
 OCP\Util::addScript('file_previewer', 'jquery.fancybox.pack');
+OCP\Util::addscript('file_previewer', 'j5slide_embed');
 OCP\Util::addStyle('file_previewer', 'jquery.fancybox');
 
 OC::$CLASSPATH['Apache_Solr_Service'] = 'apps/file_previewer/3rdparty/SolrPhpClient/Apache/Solr/Service.php';
